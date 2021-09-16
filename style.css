@@ -1,0 +1,62 @@
+body {
+    width: 700px;
+    margin: 5em auto;
+    padding: 5em 0em;
+    border: 1px solid black;
+    border-radius: 25px;
+    background-color: rgb(245, 245, 245);
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.score {
+    display: flex;
+    justify-content: space-evenly;
+    width: 600px;
+    margin: 0 auto;
+}
+
+.round {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-btns {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 2em;
+}
+
+.button {
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 10em;
+    width: 10em;
+}
+
+img {
+    height: inherit;
+    border-radius: inherit;
+    width: inherit;
+}
+
+.button:hover {
+    border: .5px solid black;
+    box-shadow: 0 0 20px 1px black;
+    height: 10em;
+    width: 10em;
+}
+
+.winner {
+    color: green;
+}
+
+.loser {
+    color: red;
+}
