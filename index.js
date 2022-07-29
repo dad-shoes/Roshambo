@@ -38,38 +38,67 @@ let getPlayerChoice = () => {
 let playRound = () => {
     let cpc = getComputerChoice();
     let plc = getPlayerChoice();
-
-    console.log(plc);
-    console.log(cpc);
+    let msg;
 
     switch (plc) {
         case "Rock":
             if (cpc == "Rock") {
-                console.log("It's a tie. Rocks all.");
+                return "It's a tie. Rocks all.";
             } else if (cpc == "Paper") {
-                console.log("You Lose. Paper beats Rock.");
+                return "You Lose. Paper beats Rock.";
             } else {
-                console.log("You Win. Rock beats Scissors.");
+                return "You Win. Rock beats Scissors.";
             }
             break;
         case "Paper":
             if (cpc == "Paper") {
-                console.log("It's a tie. Paper all.");
+                return "It's a tie. Paper all.";
             } else if (cpc == "Scissors") {
-                console.log("You Lose. Scissors beats Paper.");
+                return "You Lose. Scissors beats Paper.";
             } else {
-                console.log("You Win. Paper beats Rock.");
+                return "You Win. Paper beats Rock.";
             }
 
             break;
         case "Scissors":
             if (cpc == "Scissors") {
-                console.log("It's a tie. Rocks all.");
+                return "It's a tie. Rocks all.";
             } else if (cpc == "Rock") {
-                console.log("You Lose. Rock beats Scissors.");
+                return "You Lose. Rock beats Scissors.";
             } else {
-                console.log("You Win. Scissors beats Paper.");
+                return "You Win. Scissors beats Paper.";
             }
             break;
+    }
+};
+
+let game = () => {
+    let playerScore = 0;
+    let computerScore = 0;
+
+    while (playerScore < 5 || computerScore < 5) {
+        let outcome = playRound();
+
+        if (playerScore == 5) {
+            console.log("Player Wins Game!");
+            return "Player Wins Game!";
+        } else if (computerScore == 5) {
+            console.log("Computer destroyed you!");
+            return "Computer Destroyed You!";
+        } else {
+            if (
+                outcome == "You Win. Scissors beats Paper." ||
+                outcome == "You Win. Paper beats Rock." ||
+                outcome == "You Win. Rock beats Scissors."
+            ) {
+                playerScore++;
+                console.log("Winner", playerScore, computerScore);
+            } else if (outcome == "It's a tie.") {
+                console.log("Tie", playerScore, computerScore);
+            } else {
+                computerScore++;
+                console.log("Loser", playerScore, computerScore);
+            }
+        }
     }
 };
