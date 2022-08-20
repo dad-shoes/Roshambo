@@ -1,3 +1,4 @@
+const announcer = document.querySelector(".announcer");
 const pScore = document.querySelector(".pScore");
 const cScore = document.querySelector(".cScore");
 const startBtn = document.querySelector(".startBtn");
@@ -13,6 +14,9 @@ resetBtn.addEventListener("click", (e) => {
     btnDiv.append(scissorsBtn);
     playerScore = 0;
     computerScore = 0;
+    pScore.textContent = `${playerScore}`;
+    cScore.textContent = `${computerScore}`;
+    announcer.textContent = "You know what to do ;)";
 });
 
 let getRandInt = (max) => Math.floor(Math.random() * max);
@@ -37,36 +41,36 @@ let playRound = (plc, cpc) => {
     switch (plc) {
         case "Rock":
             if (cpc == "Rock") {
-                return "It's a tie. Rocks all.";
+                announcer.textContent = "It's a tie. Rocks all.";
             } else if (cpc == "Paper") {
                 computerScore++;
-                return "You Lose. Paper beats Rock.";
+                announcer.textContent = "You Lose. Paper beats Rock.";
             } else {
                 playerScore++;
-                return "You Win. Rock beats Scissors.";
+                announcer.textContent = "You Win. Rock beats Scissors.";
             }
             break;
         case "Paper":
             if (cpc == "Paper") {
-                return "It's a tie. Paper all.";
+                announcer.textContent = "It's a tie. Paper all.";
             } else if (cpc == "Scissors") {
                 computerScore++;
-                return "You Lose. Scissors beats Paper.";
+                announcer.textContent = "You Lose. Scissors beats Paper.";
             } else {
                 playerScore++;
-                return "You Win. Paper beats Rock.";
+                announcer.textContent = "You Win. Paper beats Rock.";
             }
 
             break;
         case "Scissors":
             if (cpc == "Scissors") {
-                return "It's a tie. Rocks all.";
+                announcer.textContent = "It's a tie. Rocks all.";
             } else if (cpc == "Rock") {
                 computerScore++;
-                return "You Lose. Rock beats Scissors.";
+                announcer.textContent = "You Lose. Rock beats Scissors.";
             } else {
                 playerScore++;
-                return "You Win. Scissors beats Paper.";
+                announcer.textContent = "You Win. Scissors beats Paper.";
             }
             break;
     }
@@ -74,22 +78,21 @@ let playRound = (plc, cpc) => {
 
 let game = () => {
     // checks for winner
-    console.log(playerScore, computerScore);
+    pScore.textContent = `${playerScore}`;
+    cScore.textContent = `${computerScore}`;
 
     if (playerScore == 5) {
         btnDiv.append(resetBtn);
         rockBtn.remove();
         paperBtn.remove();
         scissorsBtn.remove();
-        console.log("Player Wins Game!");
-        return "Player Wins Game!";
+        announcer.textContent = "Player Wins Game!";
     } else if (computerScore == 5) {
         btnDiv.append(resetBtn);
         rockBtn.remove();
         paperBtn.remove();
         scissorsBtn.remove();
-        console.log("Computer destroyed you!");
-        return "Computer Destroyed You!";
+        announcer.textContent = "Computer destroyed you!";
     }
 };
 

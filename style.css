@@ -1,0 +1,19 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.mainDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scores {
+  display: inherit;
+  align-items: center;
+}
+
+h3 {
+  margin: 5px;
+}
